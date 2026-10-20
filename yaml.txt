@@ -1,0 +1,9 @@
+entities.yaml
+
+CSD_Fact.Trades:
+    table: Trades
+    schema_name: CSD_Fact
+    aliases: [معاملات گواهی سپرده, گواهی سپرده کالایی, معاملات گواهی سپرده کالایی]
+ datasources.yaml
+
+keywords: [گواهی سپرده, آتی, اختیار معامله]
