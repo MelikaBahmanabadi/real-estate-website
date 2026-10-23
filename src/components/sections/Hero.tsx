@@ -4,10 +4,13 @@ import { usePrefersReducedMotion } from '../../hooks';
 import { useScrollScrubVideo } from '../../hooks/useScrollScrubVideo';
 
 const HERO_FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1613490493576-7fde63acd811';
-const HERO_POSTER = '/hero/horizon-hero-poster.jpg';
+// BASE_URL keeps these reachable when the site is served from a subpath
+// (GitHub Pages project sites live at /<repo>/); it is "/" everywhere else.
+const BASE = import.meta.env.BASE_URL;
+const HERO_POSTER = `${BASE}hero/horizon-hero-poster.jpg`;
 const VIDEO_SOURCES = {
-  desktop: '/hero/horizon-hero-desktop.mp4',
-  mobile: '/hero/horizon-hero-mobile.mp4',
+  desktop: `${BASE}hero/horizon-hero-desktop.mp4`,
+  mobile: `${BASE}hero/horizon-hero-mobile.mp4`,
 };
 
 /** Scroll distance of the pinned hero: one viewport to read, two to travel. */

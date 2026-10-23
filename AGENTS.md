@@ -66,7 +66,10 @@ user's scroll is the only thing that moves the timeline. The scroll handler only
 records a target progress; one `requestAnimationFrame` loop eases toward it and
 writes `currentTime` only when the target moves at least half a frame.
 
-Sources live in `public/hero/` (`-desktop` 1080×1920, `-mobile` the source's native
+Sources live in `public/hero/` and are referenced through
+`import.meta.env.BASE_URL` — a root-absolute `/hero/…` works in dev and on the
+Express host but 404s under a GitHub Pages subpath, which silently drops the hero
+to its static fallback. (`-desktop` 1080×1920, `-mobile` the source's native
 480×854, plus a poster frame taken from the first frame). Both are loaded fully
 into memory via `fetch` before scrubbing, so seeking never waits on the network;
 the hero shows a thin progress line until the first frame is painted. If the
