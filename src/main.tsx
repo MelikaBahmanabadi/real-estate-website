@@ -7,7 +7,8 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* BASE_URL is "/" locally and "/<repo>/" on GitHub Pages project sites. */}
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <FavoritesProvider>
         <App />
       </FavoritesProvider>

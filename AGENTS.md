@@ -22,6 +22,23 @@ npm run dev:all      # Vite on :3000, API on :8000 (Vite proxies /api)
 
 `npm run build` type-checks and builds the frontend.
 
+## Publishing (two build modes)
+
+- `npm run build` — full site. `server/index.js` serves `dist/` (with an index
+  fallback for deep links) plus `/api/*` on `$PORT`, so one process is a complete
+  deployment. Without a `dist/` it stays API-only for local dev.
+- `npm run build:static` — `vite build --mode static`; `.env.static` sets
+  `VITE_STATIC_BUILD=1`, which makes `src/lib/api.ts` read the bundled
+  `src/data/catalogue.ts` (same `server/data/properties.js`, same enrichment the
+  API applies) and turn the forms into `mailto:` links. Nothing posts anywhere,
+  so an enquiry is only sent if the visitor actually sends the opened email.
+- GitHub Pages lives under `/<repo>/`: the page base comes from `--base` /
+  `VITE_BASE` in `vite.config.ts`, and `src/main.tsx` hands
+  `import.meta.env.BASE_URL` to `BrowserRouter` so the basename always matches.
+  `dist/index.html` copied to `dist/404.html` is what makes deep links survive a
+  refresh; `.github/workflows/deploy-pages.yml` does both automatically and
+  derives the base path from the repository name.
+
 ## Sandbox / Base44 preview notes
 
 - `docker-compose.base44.yml` runs **both processes in one container**: Vite on

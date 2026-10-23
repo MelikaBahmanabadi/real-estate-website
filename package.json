@@ -9,6 +9,7 @@
     "dev:api": "node --watch server/index.js",
     "dev:all": "concurrently -k -n web,api -c cyan,magenta \"npm:dev\" \"npm:dev:api\"",
     "build": "tsc --noEmit && vite build",
+    "build:static": "tsc --noEmit && vite build --mode static",
     "typecheck": "tsc --noEmit",
     "start": "node server/index.js"
   },

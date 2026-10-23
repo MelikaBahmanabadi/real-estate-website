@@ -6,6 +6,7 @@ dist-ssr
 .env
 .env.*
 !.env.base44-defaults
+!.env.static
 server/data/*.json
 !server/data/.gitkeep
 npm-debug.log*

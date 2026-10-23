@@ -11,6 +11,9 @@ const allowedHosts =
 
 export default defineConfig({
   plugins: [react()],
+  // GitHub Pages project sites are served from /<repo>/ — the Pages workflow
+  // passes `--base` (or set VITE_BASE) when building for one.
+  base: process.env.VITE_BASE || '/',
   server: {
     host: '0.0.0.0',
     port: 3000,

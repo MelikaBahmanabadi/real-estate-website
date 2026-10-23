@@ -131,7 +131,25 @@ app.use('/api', (_req, res) => {
   res.status(404).json({ error: 'Not found' });
 });
 
+// Self-hosting: after `npm run build`, this one process serves the site and the
+// API on the same port. Without a build it degrades to API-only (dev uses Vite).
+const DIST_DIR = path.join(__dirname, '..', 'dist');
+let servesSite = false;
+try {
+  await fs.access(path.join(DIST_DIR, 'index.html'));
+  servesSite = true;
+} catch {
+  servesSite = false;
+}
+
+if (servesSite) {
+  app.use(express.static(DIST_DIR, { index: false }));
+  app.get('*', (_req, res) => res.sendFile(path.join(DIST_DIR, 'index.html')));
+}
+
 const port = Number(process.env.PORT) || 8000;
 app.listen(port, '0.0.0.0', () => {
-  console.log(`Horizon Properties API listening on :${port}`);
+  console.log(
+    `Horizon Properties listening on :${port}${servesSite ? ' (site + API)' : ' (API only — run `npm run build` to serve the site)'}`,
+  );
 });
