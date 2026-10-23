@@ -49,6 +49,22 @@ export function useReveal<T extends HTMLElement>() {
   return { ref, visible };
 }
 
+/** Tracks the user's reduced-motion preference. */
+export function usePrefersReducedMotion(): boolean {
+  const [reduced, setReduced] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+  );
+
+  useEffect(() => {
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const onChange = () => setReduced(query.matches);
+    query.addEventListener('change', onChange);
+    return () => query.removeEventListener('change', onChange);
+  }, []);
+
+  return reduced;
+}
+
 /** Locks background scrolling while an overlay is open. */
 export function useLockBodyScroll(locked: boolean) {
   useEffect(() => {
