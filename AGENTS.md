@@ -106,6 +106,16 @@ ffmpeg -i public/hero/horizon-hero-desktop.mp4 -frames:v 1 -q:v 4 \
 All-intra came out smaller than an equivalent VP9/WebM encode, so no WebM
 variant is shipped.
 
+## Fonts
+
+Inter is self-hosted, so the site makes no request to Google Fonts: the two
+variable woff2 files (latin, latin-ext; weights 300–700) live in
+`src/assets/fonts/` and `src/index.css` declares them with `@font-face` using
+**relative** `url()`s. Vite rewrites those to hashed assets and applies
+`BASE_URL`, which is why they also load from a GitHub Pages subpath — do not move
+them to `public/` and reference them root-absolutely. `index.html` has no font
+links left.
+
 ## Images
 
 All photography is bundled — nothing is fetched from an external image host.
