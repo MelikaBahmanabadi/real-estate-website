@@ -133,7 +133,7 @@ export const team = [
   {
     name: 'Daniel Morgan',
     role: 'Managing Director',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d',
+    image: '/images/agents/daniel-morgan.jpg',
     email: 'daniel@horizonproperties.com',
     phone: '(555) 246-7890',
     bio: 'Twenty-two years in residential brokerage, with a focus on architect-designed homes and private estates.',
@@ -141,7 +141,7 @@ export const team = [
   {
     name: 'Olivia Carter',
     role: 'Luxury Property Advisor',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2',
+    image: '/images/agents/olivia-carter.jpg',
     email: 'olivia@horizonproperties.com',
     phone: '(555) 246-7891',
     bio: 'Represents buyers and sellers across the Californian coast, from Malibu to Big Sur.',
@@ -149,7 +149,7 @@ export const team = [
   {
     name: 'James Wilson',
     role: 'Investment Consultant',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a',
+    image: '/images/agents/james-wilson.jpg',
     email: 'james@horizonproperties.com',
     phone: '(555) 246-7892',
     bio: 'Advises private clients and family offices on residential investment strategy and portfolio timing.',
@@ -157,7 +157,7 @@ export const team = [
   {
     name: 'Sophia Bennett',
     role: 'Senior Property Specialist',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956',
+    image: '/images/agents/sophia-bennett.jpg',
     email: 'sophia@horizonproperties.com',
     phone: '(555) 246-7893',
     bio: 'Specialises in waterfront and city residences, with a background in interior architecture.',

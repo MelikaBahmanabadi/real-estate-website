@@ -73,7 +73,8 @@ to its static fallback. (`-desktop` 1080×1920, `-mobile` the source's native
 480×854, plus a poster frame taken from the first frame). Both are loaded fully
 into memory via `fetch` before scrubbing, so seeking never waits on the network;
 the hero shows a thin progress line until the first frame is painted. If the
-fetch/decode fails, the original Unsplash hero image is shown. With
+fetch/decode fails, the local still `public/images/site/hero-fallback.jpg`
+(`/images/site/hero-fallback.jpg`) is shown. With
 `prefers-reduced-motion: reduce` nothing is fetched and the static hero is used.
 The mobile master is chosen at load time with `(max-width: 767px)`.
 
@@ -107,6 +108,15 @@ variant is shipped.
 
 ## Images
 
-Photography is served from Unsplash CDN URLs stored with the property data.
-Swap an entry for a local file or a DAM URL and the UI picks it up (non-Unsplash
-URLs bypass the responsive `srcset` builder).
+All photography is bundled — nothing is fetched from an external image host.
+Files live in `public/images/`: `properties/<slug>-<n>.jpg` (five per property,
+first one is the card cover), `agents/<agent-id>.jpg`, and `site/` for the
+section images (`about-main`, `about-side`, `why-choose`, `contact-office`,
+`hero-fallback`).
+
+The data files (`server/data/properties.js`, `src/data/site.ts`) store
+root-absolute paths (`/images/…`); `imageUrl()` in `src/lib/images.ts` prefixes
+`import.meta.env.BASE_URL` so they also resolve under the GitHub Pages subpath.
+Every image is a single file, so there is no `srcset`. To change a photo, drop a
+new file in `public/images/` and point the path at it; an absolute URL still
+works because `imageUrl()` returns non-slash-prefixed values untouched.

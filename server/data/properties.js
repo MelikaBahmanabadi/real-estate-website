@@ -1,11 +1,10 @@
 /**
  * Property catalogue — the single source of truth for the whole site.
  *
- * Images are plain URLs so any CDN/asset host works. Swap them for local
- * files (`/images/...`) or a real database later without touching the UI.
+ * Images are root-absolute paths into `public/images/` (prefixed with
+ * BASE_URL by `src/lib/images.ts`), so the site renders with no external image
+ * host. Swap a path for a CDN URL later without touching the UI.
  */
-
-const u = (id) => `https://images.unsplash.com/${id}`;
 
 export const agents = [
   {
@@ -14,7 +13,7 @@ export const agents = [
     role: 'Managing Director',
     phone: '(555) 246-7890',
     email: 'daniel@horizonproperties.com',
-    image: u('photo-1507003211169-0a1dd7228f2d'),
+    image: '/images/agents/daniel-morgan.jpg',
   },
   {
     id: 'olivia-carter',
@@ -22,7 +21,7 @@ export const agents = [
     role: 'Luxury Property Advisor',
     phone: '(555) 246-7891',
     email: 'olivia@horizonproperties.com',
-    image: u('photo-1573496359142-b8d87734a5a2'),
+    image: '/images/agents/olivia-carter.jpg',
   },
   {
     id: 'james-wilson',
@@ -30,7 +29,7 @@ export const agents = [
     role: 'Investment Consultant',
     phone: '(555) 246-7892',
     email: 'james@horizonproperties.com',
-    image: u('photo-1560250097-0b93528c311a'),
+    image: '/images/agents/james-wilson.jpg',
   },
   {
     id: 'sophia-bennett',
@@ -38,7 +37,7 @@ export const agents = [
     role: 'Senior Property Specialist',
     phone: '(555) 246-7893',
     email: 'sophia@horizonproperties.com',
-    image: u('photo-1580489944761-15a19d654956'),
+    image: '/images/agents/sophia-bennett.jpg',
   },
 ];
 
@@ -79,11 +78,11 @@ export const properties = [
       'Outdoor kitchen',
     ],
     images: [
-      u('photo-1600596542815-ffad4c1539a9'),
-      u('photo-1600566753190-17f0baa2a6c3'),
-      u('photo-1600607688969-a5bfcd646154'),
-      u('photo-1600607687644-c7171b42498f'),
-      u('photo-1600210492486-724fe5c67fb0'),
+      '/images/properties/lakeside-modern-villa-1.jpg',
+      '/images/properties/lakeside-modern-villa-2.jpg',
+      '/images/properties/lakeside-modern-villa-3.jpg',
+      '/images/properties/lakeside-modern-villa-4.jpg',
+      '/images/properties/lakeside-modern-villa-5.jpg',
     ],
     agentId: 'olivia-carter',
   },
@@ -123,11 +122,11 @@ export const properties = [
       'Gated motor court',
     ],
     images: [
-      u('photo-1512917774080-9991f1c4c750'),
-      u('photo-1600607688960-e095ff83135c'),
-      u('photo-1600573472592-401b489a3cdc'),
-      u('photo-1600585152220-90363fe7e115'),
-      u('photo-1600585154363-67eb9e2e2099'),
+      '/images/properties/pacific-glass-house-1.jpg',
+      '/images/properties/pacific-glass-house-2.jpg',
+      '/images/properties/pacific-glass-house-3.jpg',
+      '/images/properties/pacific-glass-house-4.jpg',
+      '/images/properties/pacific-glass-house-5.jpg',
     ],
     agentId: 'daniel-morgan',
   },
@@ -167,11 +166,11 @@ export const properties = [
       'Desert landscaping',
     ],
     images: [
-      u('photo-1580587771525-78b9dba3b914'),
-      u('photo-1600573472550-8090b5e0745e'),
-      u('photo-1605276374104-dee2a0ed3cd6'),
-      u('photo-1600210492493-0946911123ea'),
-      u('photo-1600566753086-00f18fb6b3ea'),
+      '/images/properties/desert-horizon-estate-1.jpg',
+      '/images/properties/desert-horizon-estate-2.jpg',
+      '/images/properties/desert-horizon-estate-3.jpg',
+      '/images/properties/desert-horizon-estate-4.jpg',
+      '/images/properties/desert-horizon-estate-5.jpg',
     ],
     agentId: 'james-wilson',
   },
@@ -211,11 +210,11 @@ export const properties = [
       'Two-car garage',
     ],
     images: [
-      u('photo-1512918728675-ed5a9ecdebfd'),
-      u('photo-1449844908441-8829872d2607'),
-      u('photo-1493809842364-78817add7ffb'),
-      u('photo-1502672260266-1c1ef2d93688'),
-      u('photo-1600585154526-990dced4db0d'),
+      '/images/properties/oceanfront-residence-1.jpg',
+      '/images/properties/oceanfront-residence-2.jpg',
+      '/images/properties/oceanfront-residence-3.jpg',
+      '/images/properties/oceanfront-residence-4.jpg',
+      '/images/properties/oceanfront-residence-5.jpg',
     ],
     agentId: 'sophia-bennett',
   },
@@ -255,11 +254,11 @@ export const properties = [
       'Gated entry',
     ],
     images: [
-      u('photo-1523217582562-09d0def993a6'),
-      u('photo-1613977257363-707ba9348227'),
-      u('photo-1613977257592-4871e5fcd7c4'),
-      u('photo-1615529182904-14819c35db37'),
-      u('photo-1502005229762-cf1b2da7c5d6'),
+      '/images/properties/modern-hillside-retreat-1.jpg',
+      '/images/properties/modern-hillside-retreat-2.jpg',
+      '/images/properties/modern-hillside-retreat-3.jpg',
+      '/images/properties/modern-hillside-retreat-4.jpg',
+      '/images/properties/modern-hillside-retreat-5.jpg',
     ],
     agentId: 'olivia-carter',
   },
@@ -299,11 +298,11 @@ export const properties = [
       'Four-car garage',
     ],
     images: [
-      u('photo-1570129477492-45c003edd2be'),
-      u('photo-1583608205776-bfd35f0d9f83'),
-      u('photo-1600607687920-4e2a09cf159d'),
-      u('photo-1600585153490-76fb20a32601'),
-      u('photo-1600607686527-6fb886090705'),
+      '/images/properties/palm-garden-residence-1.jpg',
+      '/images/properties/palm-garden-residence-2.jpg',
+      '/images/properties/palm-garden-residence-3.jpg',
+      '/images/properties/palm-garden-residence-4.jpg',
+      '/images/properties/palm-garden-residence-5.jpg',
     ],
     agentId: 'daniel-morgan',
   },
@@ -343,11 +342,11 @@ export const properties = [
       'Two-car garage',
     ],
     images: [
-      u('photo-1600566752355-35792bedcfea'),
-      u('photo-1600585154084-4e5fe7c39198'),
-      u('photo-1600047509358-9dc75507daeb'),
-      u('photo-1600210491369-e753d80a41f3'),
-      u('photo-1616486338812-3dadae4b4ace'),
+      '/images/properties/contemporary-lake-house-1.jpg',
+      '/images/properties/contemporary-lake-house-2.jpg',
+      '/images/properties/contemporary-lake-house-3.jpg',
+      '/images/properties/contemporary-lake-house-4.jpg',
+      '/images/properties/contemporary-lake-house-5.jpg',
     ],
     agentId: 'james-wilson',
   },
@@ -387,11 +386,11 @@ export const properties = [
       'Storage suite',
     ],
     images: [
-      u('photo-1618221195710-dd6b41faaea6'),
-      u('photo-1616594039964-ae9021a400a0'),
-      u('photo-1615874959474-d609969a20ed'),
-      u('photo-1600121848594-d8644e57abab'),
-      u('photo-1598928506311-c55ded91a20c'),
+      '/images/properties/architectural-downtown-penthouse-1.jpg',
+      '/images/properties/architectural-downtown-penthouse-2.jpg',
+      '/images/properties/architectural-downtown-penthouse-3.jpg',
+      '/images/properties/architectural-downtown-penthouse-4.jpg',
+      '/images/properties/architectural-downtown-penthouse-5.jpg',
     ],
     agentId: 'sophia-bennett',
   },
@@ -431,11 +430,11 @@ export const properties = [
       'Three-car garage',
     ],
     images: [
-      u('photo-1600607687939-ce8a6c25118c'),
-      u('photo-1486406146926-c627a92ad1ab'),
-      u('photo-1497366754035-f200968a6e72'),
-      u('photo-1524230572899-a752b3835840'),
-      u('photo-1599809275671-b5942cabc7a2'),
+      '/images/properties/the-cliffside-pavilion-1.jpg',
+      '/images/properties/the-cliffside-pavilion-2.jpg',
+      '/images/properties/the-cliffside-pavilion-3.jpg',
+      '/images/properties/the-cliffside-pavilion-4.jpg',
+      '/images/properties/the-cliffside-pavilion-5.jpg',
     ],
     agentId: 'daniel-morgan',
   },
@@ -475,11 +474,11 @@ export const properties = [
       'Smart security',
     ],
     images: [
-      u('photo-1600585154340-be6161a56a0c'),
-      u('photo-1600607688969-a5bfcd646154'),
-      u('photo-1512918728675-ed5a9ecdebfd'),
-      u('photo-1600585154526-990dced4db0d'),
-      u('photo-1600566753190-17f0baa2a6c3'),
+      '/images/properties/marlowe-townhouse-1.jpg',
+      '/images/properties/marlowe-townhouse-2.jpg',
+      '/images/properties/marlowe-townhouse-3.jpg',
+      '/images/properties/marlowe-townhouse-4.jpg',
+      '/images/properties/marlowe-townhouse-5.jpg',
     ],
     agentId: 'olivia-carter',
   },

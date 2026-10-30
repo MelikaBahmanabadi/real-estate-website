@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, Expand, X } from 'lucide-react';
 import { useLockBodyScroll } from '../../hooks';
-import { imageSrcSet, imageUrl } from '../../lib/images';
+import { imageUrl } from '../../lib/images';
 
 interface PropertyGalleryProps {
   images: string[];
@@ -49,8 +49,7 @@ export function PropertyGallery({ images, name }: PropertyGalleryProps) {
         <div className="aspect-[16/11] w-full sm:aspect-[16/9]">
           <img
             key={images[activeIndex]}
-            src={imageUrl(images[activeIndex], 1600)}
-            srcSet={imageSrcSet(images[activeIndex], [800, 1200, 1800])}
+            src={imageUrl(images[activeIndex])}
             sizes="(min-width: 1024px) 62vw, 100vw"
             alt={`${name} — photograph ${activeIndex + 1} of ${images.length}`}
             width={1600}
@@ -81,7 +80,7 @@ export function PropertyGallery({ images, name }: PropertyGalleryProps) {
               }`}
             >
               <img
-                src={imageUrl(image, 320)}
+                src={imageUrl(image)}
                 alt={`${name} thumbnail ${index + 1}`}
                 width={320}
                 height={240}
@@ -130,7 +129,7 @@ export function PropertyGallery({ images, name }: PropertyGalleryProps) {
             </button>
             <img
               key={images[activeIndex]}
-              src={imageUrl(images[activeIndex], 2000)}
+              src={imageUrl(images[activeIndex])}
               alt={`${name} — photograph ${activeIndex + 1} of ${images.length}`}
               className="max-h-[78vh] w-auto max-w-full animate-fade-in rounded-[4px] object-contain"
             />

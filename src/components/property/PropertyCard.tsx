@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { MapPin } from 'lucide-react';
 import type { Property } from '../../types';
 import { formatPriceShort } from '../../lib/format';
-import { CARD_IMAGE_WIDTHS, imageSrcSet, imageUrl } from '../../lib/images';
+import { imageUrl } from '../../lib/images';
 import { FavoriteButton } from './FavoriteButton';
 
 interface PropertyCardProps {
@@ -30,8 +30,7 @@ export function PropertyCard({
       >
         <div className="media media-zoom aspect-[4/5] outline outline-1 -outline-offset-1 outline-black/5 transition-all duration-500 group-hover:outline-champagne/60">
           <img
-            src={imageUrl(cover, 900)}
-            srcSet={imageSrcSet(cover, CARD_IMAGE_WIDTHS)}
+            src={imageUrl(cover)}
             sizes={sizes}
             alt={`${name} — ${location}`}
             width={900}

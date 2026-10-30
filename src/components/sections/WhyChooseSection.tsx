@@ -1,9 +1,9 @@
 import { stats, whyChoose } from '../../data/site';
 import { SectionLabel } from '../ui/SectionLabel';
 import { Reveal } from '../ui/Reveal';
-import { imageSrcSet, imageUrl } from '../../lib/images';
+import { imageUrl } from '../../lib/images';
 
-const IMAGE = 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde';
+const IMAGE = '/images/site/why-choose.jpg';
 
 export function WhyChooseSection() {
   return (
@@ -14,8 +14,7 @@ export function WhyChooseSection() {
             <div className="relative">
               <div className="media aspect-[4/5]">
                 <img
-                  src={imageUrl(IMAGE, 1000)}
-                  srcSet={imageSrcSet(IMAGE, [600, 900, 1200])}
+                  src={imageUrl(IMAGE)}
                   sizes="(min-width: 1024px) 38vw, 90vw"
                   alt="The glazed façade of a modern residence reflecting evening light"
                   width={1000}

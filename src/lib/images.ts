@@ -1,19 +1,14 @@
-const UNSPLASH_HOST = 'https://images.unsplash.com/';
-
 /**
- * Build a responsive URL for a photo. Unsplash URLs accept width/quality
- * params; any other host (local assets, a future CDN) is returned untouched.
+ * All photography is bundled with the site: files live in `public/images/` and
+ * the data files reference them by root-absolute path (`/images/properties/…`).
+ *
+ * `BASE_URL` is "/" in dev and "/<repo>/" on a GitHub Pages project site, so
+ * prefixing it keeps every local asset reachable in both. Absolute URLs are
+ * returned untouched.
  */
-export function imageUrl(src: string, width: number, quality = 78): string {
+const BASE = import.meta.env.BASE_URL;
+
+export function imageUrl(src: string): string {
   if (!src) return '';
-  if (!src.startsWith(UNSPLASH_HOST)) return src;
-  const base = src.split('?')[0];
-  return `${base}?auto=format&fit=crop&w=${width}&q=${quality}`;
+  return src.startsWith('/') ? `${BASE}${src.slice(1)}` : src;
 }
-
-export function imageSrcSet(src: string, widths: number[] = [480, 800, 1200, 1600]): string {
-  if (!src.startsWith(UNSPLASH_HOST)) return '';
-  return widths.map((width) => `${imageUrl(src, width)} ${width}w`).join(', ');
-}
-
-export const CARD_IMAGE_WIDTHS = [400, 640, 900];

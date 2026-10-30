@@ -4,10 +4,10 @@ import { InquiryForm } from '../components/forms/InquiryForm';
 import { SectionLabel } from '../components/ui/SectionLabel';
 import { site } from '../data/site';
 import { formatPhoneHref } from '../lib/format';
-import { imageSrcSet, imageUrl } from '../lib/images';
+import { imageUrl } from '../lib/images';
 import { usePageTitle } from '../hooks';
 
-const OFFICE_IMAGE = 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab';
+const OFFICE_IMAGE = '/images/site/contact-office.jpg';
 
 export default function ContactPage() {
   usePageTitle('Contact');
@@ -129,8 +129,7 @@ export default function ContactPage() {
       <section aria-label="Our office" className="shell pb-20 sm:pb-24">
         <div className="media aspect-[21/9] sm:aspect-[21/7]">
           <img
-            src={imageUrl(OFFICE_IMAGE, 1600)}
-            srcSet={imageSrcSet(OFFICE_IMAGE, [800, 1200, 1600])}
+            src={imageUrl(OFFICE_IMAGE)}
             sizes="(min-width: 1400px) 1400px, 100vw"
             alt="The Horizon Properties office building in Austin"
             width={1600}
