@@ -258,7 +258,7 @@ export default function PropertyDetailPage() {
               {property.agent ? (
                 <div className="mt-6 flex items-center gap-3.5">
                   <img
-                    src={imageUrl(property.agent.image, 160)}
+                    src={imageUrl(property.agent.image)}
                     alt={`Portrait of ${property.agent.name}`}
                     width={52}
                     height={52}

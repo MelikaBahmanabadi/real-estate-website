@@ -3,10 +3,10 @@ import { ArrowRight } from 'lucide-react';
 import { SectionLabel } from '../ui/SectionLabel';
 import { ButtonLink } from '../ui/Button';
 import { Reveal } from '../ui/Reveal';
-import { imageSrcSet, imageUrl } from '../../lib/images';
+import { imageUrl } from '../../lib/images';
 
-const MAIN_IMAGE = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c';
-const SIDE_IMAGE = 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c';
+const MAIN_IMAGE = '/images/site/about-main.jpg';
+const SIDE_IMAGE = '/images/site/about-side.jpg';
 
 interface AboutSectionProps {
   heading?: string;
@@ -40,8 +40,7 @@ export function AboutSection({
             <div className="relative">
               <div className="media media-zoom aspect-[4/5]">
                 <img
-                  src={imageUrl(MAIN_IMAGE, 1000)}
-                  srcSet={imageSrcSet(MAIN_IMAGE, [600, 900, 1200])}
+                  src={imageUrl(MAIN_IMAGE)}
                   sizes="(min-width: 1024px) 38vw, 64vw"
                   alt="A contemporary two-storey residence at dusk"
                   width={1000}
@@ -66,8 +65,7 @@ export function AboutSection({
             <div className="flex flex-col justify-end pb-6 sm:pb-10">
               <div className="media media-zoom aspect-[3/4]">
                 <img
-                  src={imageUrl(SIDE_IMAGE, 600)}
-                  srcSet={imageSrcSet(SIDE_IMAGE, [400, 600, 800])}
+                  src={imageUrl(SIDE_IMAGE)}
                   sizes="(min-width: 1024px) 18vw, 30vw"
                   alt="Interior detail of a Horizon Properties residence"
                   width={600}

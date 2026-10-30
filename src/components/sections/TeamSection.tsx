@@ -1,7 +1,7 @@
 import { Mail, Phone } from 'lucide-react';
 import { team } from '../../data/site';
 import { formatPhoneHref } from '../../lib/format';
-import { imageSrcSet, imageUrl } from '../../lib/images';
+import { imageUrl } from '../../lib/images';
 import { SectionLabel } from '../ui/SectionLabel';
 import { ButtonLink } from '../ui/Button';
 import { Reveal } from '../ui/Reveal';
@@ -31,8 +31,7 @@ export function TeamSection({ showCta = true }: { showCta?: boolean }) {
               <article className="group">
                 <div className="media media-zoom aspect-[3/4]">
                   <img
-                    src={imageUrl(member.image, 700)}
-                    srcSet={imageSrcSet(member.image, [400, 600, 800])}
+                    src={imageUrl(member.image)}
                     sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 90vw"
                     alt={`Portrait of ${member.name}, ${member.role}`}
                     width={700}

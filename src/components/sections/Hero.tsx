@@ -1,9 +1,9 @@
 import { useCallback, useRef } from 'react';
-import { imageSrcSet, imageUrl } from '../../lib/images';
+import { imageUrl } from '../../lib/images';
 import { usePrefersReducedMotion } from '../../hooks';
 import { useScrollScrubVideo } from '../../hooks/useScrollScrubVideo';
 
-const HERO_FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1613490493576-7fde63acd811';
+const HERO_FALLBACK_IMAGE = '/images/site/hero-fallback.jpg';
 // BASE_URL keeps these reachable when the site is served from a subpath
 // (GitHub Pages project sites live at /<repo>/); it is "/" everywhere else.
 const BASE = import.meta.env.BASE_URL;
@@ -60,12 +60,10 @@ export function Hero() {
       >
         {showFallback ? (
           <img
-            src={imageUrl(HERO_FALLBACK_IMAGE, 2000)}
-            srcSet={imageSrcSet(HERO_FALLBACK_IMAGE, [800, 1200, 1600, 2000, 2400])}
-            sizes="100vw"
+            src={imageUrl(HERO_FALLBACK_IMAGE)}
             alt="A modern glass villa with an infinity pool at blue hour"
-            width={2000}
-            height={1250}
+            width={2400}
+            height={1500}
             decoding="async"
             className="absolute inset-0 -z-20 h-full w-full animate-hero-zoom object-cover object-[50%_58%]"
           />
