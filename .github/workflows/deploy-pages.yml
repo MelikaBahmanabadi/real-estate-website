@@ -53,7 +53,13 @@ jobs:
           cp dist/index.html dist/404.html
           touch dist/.nojekyll
 
+      # `enablement: true` turns GitHub Pages back on for this repository when it
+      # is off, so a deploy also repairs a repo whose Pages source was switched
+      # off (the site then 404s with "There isn't a GitHub Pages site here" even
+      # though every previous run reported success).
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
