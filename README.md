@@ -89,12 +89,13 @@ npm run build:static -- --base=/<your-repo>/   # then upload dist/ anywhere stat
 `.github/workflows/deploy-pages.yml` does it for you on every push to `main`:
 
 1. Push this repository to GitHub.
-2. **Settings → Pages → Build and deployment → Source: GitHub Actions.** The
-   workflow also enables Pages itself (`enablement: true` in
-   `actions/configure-pages`), so a repository whose Pages source got switched
-   off recovers on the next run without touching settings — until then the URL
-   answers *"There isn't a GitHub Pages site here"* even though earlier runs
-   reported success.
+2. **Settings → Pages → Build and deployment → Source: GitHub Actions.** This
+   step is required and only an owner can do it: the `GITHUB_TOKEN` in the
+   workflow has `pages: write` but not repo admin, so it cannot enable Pages
+   itself. While Pages is off the site answers *"There isn't a GitHub Pages site
+   here"* even though earlier deploys reported success, and the workflow stops at
+   `actions/configure-pages` with *"Create Pages site failed. Error: Resource not
+   accessible by integration"*.
 3. Push to `main` (or run the workflow manually). The base path is derived from
    the repository name, so a project site gets `/<repo>/` and a
    `<user>.github.io` repository gets `/`.
